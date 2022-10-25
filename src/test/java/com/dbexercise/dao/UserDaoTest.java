@@ -19,9 +19,19 @@ class UserDaoTest {
         User selectedUser = userDao.findById(id);
         Assertions.assertEquals("min", selectedUser.getName());
          */
+        /*
         // 클래스로 분리했을때
         UserDao userDao = new UserDao();
         String id = "7";
+        User user = new User(id, "min", "1111");
+        userDao.add(user);
+
+        User selectedUser = userDao.findById(id);
+        Assertions.assertEquals("min", selectedUser.getName());
+         */
+        // 인터페이스 구현
+        UserDao userDao = new UserDao(new AwsConnectionMaker());
+        String id = "8";
         User user = new User(id, "min", "1111");
         userDao.add(user);
 
