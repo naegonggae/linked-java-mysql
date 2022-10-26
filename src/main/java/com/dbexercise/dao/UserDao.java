@@ -37,6 +37,20 @@ public class UserDao {
         this.connectionMaker = connectionMaker;
     }
 
+    public void deleteAll() throws SQLException {
+        Connection connection  = null;
+        PreparedStatement preparedStatement;
+
+        connection = connectionMaker.makeConnection();
+
+        preparedStatement = connection.prepareStatement(
+                    "DELETE FROM users");
+
+        preparedStatement.executeUpdate(); // command + enter 역할
+        preparedStatement.close();
+        connection.close();
+
+    }
     public void add(User user) {
         //Map<String, String> env = System.getenv();
         try {
@@ -98,10 +112,6 @@ public class UserDao {
 
     public int getCount() {
         return 0;
-    }
-
-    public void deleteAll() {
-
     }
 
     public static void main(String[] args) {
