@@ -68,6 +68,6 @@ public abstract class UserDaoAbstract {
 
     public static void main(String[] args) {
         UserDao userDao = new UserDao();
-        userDao.add(new User("5","bibi", "1122"));
+        //userDao.add(new User("5","bibi", "1122"));
     }
 }
